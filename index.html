@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="content-wrapper">
     <header>
         <nav>
             <div class="logo">Christopher L. Johnson</div>
@@ -23,7 +24,15 @@
         <div class="hero-content">
             <h1>The Teddy Voice</h1>
             <h2>My voice styles:</h2>
-            <p>Deep, Articulate, Warm, Gravelly, Soothing, Laid-Back, Baritone</p>
+            <div class="voice-styles-container">
+                <span>Deep</span>
+                <span>Articulate</span>
+                <span>Warm</span>
+                <span>Gravelly</span>
+                <span>Soothing</span>
+                <span>Laid-Back</span>
+                <span>Baritone</span>
+            </div>
             <a href="#portfolio" class="cta-button">View My Work</a>
         </div>
     </section>
@@ -37,8 +46,19 @@
             commercial, corporate and radio clients. When he is not in the recording booth, Chris is enjoying a festive brunch or
             vacation with friends, a visit with distant family or a quiet evening of movies. Equipped with his home studio in
             Columbus, OH, Chris can deliver a quality raw voiceover file to clients anywhere in the world.</p>
-            <p>Voiceover Types: Commercial VO, Corporate Narration, Telephony, Radio Ad, Online Ad, Voice Assistant, Television Ad,
-            Documentaries</p>
+            <div class="voiceover-types-section">
+                <h4>Voiceover Types:</h4>
+                <ul class="voiceover-types-list">
+                    <li><span>Commercial VO</span></li>
+                    <li><span>Corporate Narration</span></li>
+                    <li><span>Telephony</span></li>
+                    <li><span>Radio Ad</span></li>
+                    <li><span>Online Ad</span></li>
+                    <li><span>Voice Assistant</span></li>
+                    <li><span>Television Ad</span></li>
+                    <li><span>Documentaries</span></li>
+                </ul>
+            </div>
         </div>
         <div class="about-equipment">
             <h3>Home Studio Equipment</h3>
@@ -65,22 +85,36 @@
     <section id="portfolio">
         <h2>Portfolio</h2>
         <div class="portfolio-grid">
-            <!-- Project items will be added here -->
+            <!-- Item 1: Commercial -->
             <div class="portfolio-item">
-                <h3>Project Title 1</h3>
-                <p>Short description of project 1. What technologies were used? What problem does it solve?</p>
-                <a href="#" target="_blank">View Project</a>
+                <h3>Commercial Demo</h3>
+                <p>A dynamic range of commercial voiceovers, from energetic and upbeat to smooth and sophisticated.</p>
+                <div class="audio-controls">
+                    <!-- <button class="play-audio-button" data-target-audio="commercialAudio">Play</button> -->
+                    <audio id="commercialAudio" controls src="Assets/Audio/Radio Infomercial VO Sample.mp3"></audio>
+                </div>
             </div>
+
+            <!-- Item 2: Narration -->
             <div class="portfolio-item">
-                <h3>Project Title 2</h3>
-                <p>Short description of project 2. What technologies were used? What problem does it solve?</p>
-                <a href="#" target="_blank">View Project</a>
+                <h3>Narration Sample</h3>
+                <p>Engaging and clear narration perfect for documentaries, e-learning modules, and corporate presentations.</p>
+                <div class="audio-controls">
+                    <!-- <button class="play-audio-button" data-target-audio="narrationAudio">Play</button> -->
+                    <audio id="narrationAudio" controls src="Assets/Audio/Narrator VO Sample.mp3"></audio>
+                </div>
             </div>
+
+            <!-- Item 3: Character Voices -->
             <div class="portfolio-item">
-                <h3>Project Title 3</h3>
-                <p>Short description of project 3. What technologies were used? What problem does it solve?</p>
-                <a href="#" target="_blank">View Project</a>
+                <h3>Character Reel</h3>
+                <p>A showcase of diverse character voices, bringing unique personalities to animations and video games.</p>
+                <div class="audio-controls">
+                    <!-- <button class="play-audio-button" data-target-audio="characterAudio">Play</button> -->
+                    <audio id="characterAudio" controls src="Assets/Audio/Character VO Sample.mp3"></audio>
+                </div>
             </div>
+            <!-- Add more portfolio items as needed -->
         </div>
     </section>
 
@@ -94,8 +128,8 @@
             <button type="submit" class="cta-button">Send Message</button>
         </form>
         <div class="social-links">
-            <a href="#" target="_blank"><img src="Assets/Images/LinkedIn.png"></a>
-            <a href="#" target="_blank"><img src="Assets/Images/FB.png"></a>
+            <!-- <a href="#" target="_blank"><img src="Assets/Images/LinkedIn.png"></a>
+            <a href="#" target="_blank"><img src="Assets/Images/FB.png"></a> -->
             <!-- Add other social media links as needed -->
         </div>
     </section>
@@ -103,6 +137,7 @@
     <footer>
         <p>&copy; 2025 Christopher L. Johnson. All rights reserved.</p>
     </footer>
+    </div> <!-- END of Content Wrapper -->
 
     <script src="script.js"></script>
 </body>

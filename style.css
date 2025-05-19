@@ -3,9 +3,16 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Soft Black */
+    /* background-color: #121212; /* Soft Black */ /* REMOVED - Moved to .content-wrapper children */
     color: #FFFFFF; /* White text for contrast */
     line-height: 1.6;
+    /* ADDED - Full page fixed background image */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Assets/Images/The Teddy Voice2.png');
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 a {
@@ -18,12 +25,27 @@ a:hover {
 }
 
 h1, h2, h3 {
-    color: #B8860B; /* Flame Red */
+    color: #B8860B; /* Gold */
+}
+
+/* ADDED/MODIFIED - .content-wrapper */
+.content-wrapper {
+    max-width: 1200px; /* Adjust to control narrowness of the black background */
+    margin: 100px auto 0; /* 100px top margin, centered L/R, 0 bottom */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Optional depth */
+    position: relative;
+}
+
+/* ADDED - Apply soft black background to specific children of content-wrapper */
+.content-wrapper > header,
+.content-wrapper > section:not(#hero),
+.content-wrapper > footer {
+    background-color: #121212; /* Soft Black */
 }
 
 /* Header and Navigation */
 header {
-    background-color: #000000; /* Pure Black for header */
+    /* background-color: #000000; /* Pure Black for header */ /* Now handled by .content-wrapper > header */
     padding: 1rem 0;
     border-bottom: 3px solid #B8860B; /* Gold accent */
     position: sticky;
@@ -43,7 +65,7 @@ nav {
 nav .logo {
     font-size: 2.5em;
     font-weight: bold;
-    color: #B8860B; /* Flame Red */
+    color: #B8860B; /* Gold */
 }
 
 /* Nav bar */
@@ -64,7 +86,13 @@ nav ul li a {
 
 /* Hero Section */
 #hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('placeholder-hero-bg.jpg') no-repeat center center/cover; /* Add a placeholder or actual background image */
+    /* REMOVED background properties, as they are now on the body or transparent */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Assets/The Teddy Voice.png'); */
+    /* background-attachment: fixed; */
+    /* background-position: center 0%; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    background: transparent; /* ADDED - Make hero transparent to body's background image */
     color: #FFFFFF;
     text-align: center;
     padding: 100px 20px;
@@ -76,14 +104,35 @@ nav ul li a {
 }
 
 #hero h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
+    font-size: 10em; /* Doubled from 3em */
+    margin-bottom: 100px;
     color: #FFFFFF; /* White for hero title for better readability on image */
 }
 
 #hero p {
     font-size: 1.5em;
     margin-bottom: 30px;
+}
+
+/* ADDED - Voice Styles in Hero */
+.voice-styles-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center; /* Center the items in the container */
+    gap: 50px; /* Space between items */
+    margin-bottom: 100px; /* Space below the voice styles */
+}
+
+.voice-styles-container span {
+    display: inline-block; /* Ensures background fits content */
+    background-color: #2a2a2a; /* Copied from .voiceover-types-list li span */
+    color: #FFFFFF; /* Copied from .voiceover-types-list li span */
+    padding: 6px 10px; /* Consistent padding */
+    border-radius: 5px; /* Copied from .voiceover-types-list li span */
+    font-size: 1.1em; /* Kept from original hero style */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Copied from .voiceover-types-list li span */
+    text-align: center; /* Ensures text is centered if it wraps */
+    /* Removed border and transition from previous style */
 }
 
 /* Contact Button */
@@ -109,8 +158,9 @@ nav ul li a {
 
 /* Sections General Styling */
 section {
-    padding: 60px 20px;
+    padding: 60px 10px; /* Reduced left and right padding */
     text-align: center;
+    /* Specific background for sections (except hero) is now handled by .content-wrapper > section:not(#hero) */
 }
 
 section h2 {
@@ -153,7 +203,7 @@ section h2::after {
 }
 
 .about-equipment .equipment-list img {
-    max-width: 100px; /* Adjust image size as needed */
+    max-width: 200px; /* Adjust image size as needed */
     height: auto;
     margin-bottom: 5px; /* Space between image and text */
     border: 1px solid #ddd;
@@ -178,7 +228,7 @@ section h2::after {
 }
 
 .about-delivery .delivery-list img {
-    max-width: 100px; /* Adjust image size as needed */
+    max-width: 200px; /* Adjust image size as needed */
     height: auto;
     margin-bottom: 5px; /* Space between image and text */
     border: 1px solid #ddd; /* Optional: adds a border around images */
@@ -189,8 +239,8 @@ section h2::after {
 /* Coaching Section */
 .about-coaching img {
     border-radius: 50%; /* Makes the image a circle */
-    width: 150px; /* Adjust size as needed */
-    height: 150px; /* Adjust size as needed */
+    width: 250px; /* Adjust size as needed */
+    height: 250px; /* Adjust size as needed */
     object-fit: cover; /* Ensures the image covers the area without distortion */
     border: 2px solid #B8860B; /* Optional: adds a gold border */
 }
@@ -204,18 +254,24 @@ section h2::after {
     margin: 0 auto;
 }
 
+/* MODIFIED - .portfolio-item */
 .portfolio-item {
     background-color: #1c1c1c; /* Slightly lighter than main black */
     padding: 25px;
     border-radius: 8px;
     border: 1px solid #333333;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left;
+    /* text-align: left; /* REMOVED */
+    /* ADDED flex properties for centering content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Centers text within h3, p */
 }
 
 .portfolio-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(226, 88, 34, 0.3); /* Flame Red shadow */
+    box-shadow: 0 10px 20px #B8860B; /* Gold shadow */
 }
 
 .portfolio-item h3 {
@@ -243,9 +299,38 @@ section h2::after {
     color: #FFFFFF;
 }
 
-/* Contact Section */
-#contact {
-    background-color: #1c1c1c; /* Slightly lighter black for this section */
+/* MODIFIED - Styles for audio controls in portfolio */
+.portfolio-item .audio-controls {
+    display: flex;
+    align-items: center; /* Vertically align items if button were present */
+    justify-content: center; /* Center the audio player within this container */
+    gap: 10px; /* Space if button were present */
+    margin-top: 15px; /* Space above the audio controls */
+    width: 100%; /* Make audio-controls div take available width */
+}
+
+.portfolio-item .play-audio-button {
+    background-color: #B8860B; /* Gold */
+    color: #000000;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.portfolio-item .play-audio-button:hover {
+    background-color: #B8860B; /* Flame Red on hover */
+    color: #FFFFFF;
+}
+
+/* MODIFIED - .portfolio-item audio */
+.portfolio-item audio {
+    /* width: calc(100% - 100px); /* OLD width, not suitable without button */
+    max-width: 400px; /* Set a max-width for the audio player */
+    width: 100%;      /* Make it responsive within its container */
+    height: 40px; /* Standard height for audio controls */
 }
 
 #contact-form {
@@ -273,10 +358,11 @@ section h2::after {
 }
 
 #contact-form button {
+    margin-top: 25px;
     align-self: center; /* Center the button */
 }
 
-.social-links a {
+/* .social-links a {
     margin: 0 15px;
     font-size: 1.2em;
     display: inline-block;
@@ -284,25 +370,71 @@ section h2::after {
 }
 
 .social-links a img {
-    border-radius: 15px; /* Adjust as needed for desired roundness */
-    width: 40px; /* Example size, adjust as needed */
-    height: 40px; /* Example size, adjust as needed */
+    border-radius: 15px; /* Adjust as needed for desired roundness
+    width: 40px; /* Example size, adjust as needed 
+    height: 40px; /* Example size, adjust as needed
 }
 
 .social-links a:hover {
     transform: scale(1.1);
-}
+} */
 
 /* Footer */
 footer {
-    background-color: #000000; /* Pure Black for footer */
+    /* background-color: #000000; /* Pure Black for footer */ /* Now handled by .content-wrapper > footer */
     color: #AAAAAA;
     text-align: center;
     padding: 20px 0;
     border-top: 3px solid #B8860B; /* Gold accent */
 }
 
-/* Responsive Design */
+/* Voiceover Types Section */
+.voiceover-types-section {
+    text-align: center; /* Center the heading and the list block */
+    margin-top: 20px; /* Add some space above the section */
+}
+
+.voiceover-types-section h4 {
+    font-size: 1.8em; /* Adjust heading size as needed */
+    color: #B8860B; /* Match other headings */
+    margin-bottom: 20px;
+}
+
+.voiceover-types-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the items within the flex container */
+    max-width: 800px; /* Or a suitable max-width for 3 columns */
+    margin: 0 auto; /* Center the list block itself */
+}
+
+.voiceover-types-list li {
+    flex-basis: calc(33.333% - 20px); /* Three columns with some margin */
+    margin: 10px;
+    /* text-align: center; */ /* Replaced with flex centering */
+    font-size: 1.1em; /* Stays on li, span will inherit */
+
+    /* Added to center the span within the li's allocated space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Added new rule for styling the span within each list item */
+.voiceover-types-list li span {
+    display: inline-block; /* Allows background to fit text content */
+    padding: 8px 15px; /* Padding around the text */
+    background-color: #2a2a2a; /* Background for the text block */
+    color: #FFFFFF; /* Explicit text color for contrast */
+    border-radius: 5px; /* Rounded corners for the background */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Shadow for the text block */
+    text-align: center; /* Center text if it wraps to multiple lines */
+    max-width: 100%; /* Ensures span respects li's width constraint */
+}
+
+/* Responsive adjustments for smaller screens if needed */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -328,5 +460,15 @@ footer {
 
     section h2 {
         font-size: 2em;
+    }
+
+    .voiceover-types-list li {
+        flex-basis: calc(50% - 20px); /* Two columns on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .voiceover-types-list li {
+        flex-basis: calc(100% - 20px); /* One column on small screens */
     }
 }

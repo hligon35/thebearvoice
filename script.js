@@ -6,16 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('nav ul li a');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href.startsWith('#')) {
-                e.preventDefault();
-                const targetId = href.substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 70, // Adjust for sticky header height
+                    behavior: 'smooth'
+                });
             }
         });
     });
@@ -52,4 +50,46 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Portfolio audio play buttons
+    const playButtons = document.querySelectorAll('.play-audio-button');
+    playButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const audioId = this.dataset.targetAudio;
+            const audioElement = document.getElementById(audioId);
+            if (audioElement) {
+                if (audioElement.paused) {
+                    // Pause all other audio elements before playing a new one
+                    document.querySelectorAll('.portfolio-item audio').forEach(audio => {
+                        if (audio !== audioElement) {
+                            audio.pause();
+                            // Optionally reset other audio elements to the beginning
+                            // audio.currentTime = 0;
+                        }
+                    });
+                    audioElement.play();
+                    // this.textContent = 'Pause'; // Optional: change button text
+                } else {
+                    audioElement.pause();
+                    // this.textContent = 'Play'; // Optional: change button text
+                }
+            }
+        });
+    });
+
+    // Optional: Update button text based on audio state (play/pause events)
+    document.querySelectorAll('.portfolio-item audio').forEach(audio => {
+        const button = document.querySelector(`.play-audio-button[data-target-audio="${audio.id}"]`);
+        if (button) {
+            audio.onplay = () => {
+                // button.textContent = 'Pause';
+            };
+            audio.onpause = () => {
+                // button.textContent = 'Play';
+            };
+            audio.onended = () => {
+                // button.textContent = 'Play'; // Reset text when audio finishes
+            };
+        }
+    });
 });
