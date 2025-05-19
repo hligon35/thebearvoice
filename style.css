@@ -1,0 +1,332 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Soft Black */
+    color: #FFFFFF; /* White text for contrast */
+    line-height: 1.6;
+}
+
+a {
+    color: #B8860B; /* Gold */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FFD700; /* Brighter Gold on hover */
+}
+
+h1, h2, h3 {
+    color: #B8860B; /* Flame Red */
+}
+
+/* Header and Navigation */
+header {
+    background-color: #000000; /* Pure Black for header */
+    padding: 1rem 0;
+    border-bottom: 3px solid #B8860B; /* Gold accent */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Name */
+nav .logo {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #B8860B; /* Flame Red */
+}
+
+/* Nav bar */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+/* Hero Section */
+#hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('placeholder-hero-bg.jpg') no-repeat center center/cover; /* Add a placeholder or actual background image */
+    color: #FFFFFF;
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #FFFFFF; /* White for hero title for better readability on image */
+}
+
+#hero p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+/* Contact Button */
+.cta-button {
+    display: inline-block;
+    background-color: #B8860B; /* Flame Red */
+    color: #FFFFFF;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 2px solid #FFD700;
+}
+
+.cta-button:hover {
+    background-color: #B8860B; /* Gold on hover */
+    color: #000000;
+    border-color: #B8860B;
+    transform: translateY(-2px);
+}
+
+/* Sections General Styling */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #B8860B; /* Gold */
+    margin: 10px auto 0;
+}
+
+/* About Section */
+#about .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.1em;
+}
+
+.about-equipment .equipment-list {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Arrange items horizontally */
+    justify-content: space-around; /* Distribute items evenly */
+    align-items: center; /* Vertically center items */
+    flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+}
+
+.about-equipment .equipment-list li {
+    text-align: center; /* Center text and image within li */
+    margin: 10px;
+    flex-basis: 30%; /* Adjust based on number of items and desired spacing */
+}
+
+.about-equipment .equipment-list img {
+    max-width: 100px; /* Adjust image size as needed */
+    height: auto;
+    margin-bottom: 5px; /* Space between image and text */
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* Delivery Platforms Section */
+.about-delivery .delivery-list {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Arrange items horizontally */
+    justify-content: space-around; /* Distribute items evenly */
+    align-items: center; /* Vertically center items */
+    flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+}
+
+.about-delivery .delivery-list li {
+    text-align: center; /* Center text and image within li */
+    margin: 10px;
+    flex-basis: 30%; /* Adjust based on number of items and desired spacing */
+}
+
+.about-delivery .delivery-list img {
+    max-width: 100px; /* Adjust image size as needed */
+    height: auto;
+    margin-bottom: 5px; /* Space between image and text */
+    border: 1px solid #ddd; /* Optional: adds a border around images */
+    padding: 5px; /* Optional: adds padding around images */
+    border-radius: 4px; /* Optional: rounds corners of images */
+}
+
+/* Coaching Section */
+.about-coaching img {
+    border-radius: 50%; /* Makes the image a circle */
+    width: 150px; /* Adjust size as needed */
+    height: 150px; /* Adjust size as needed */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border: 2px solid #B8860B; /* Optional: adds a gold border */
+}
+
+/* Projects Section */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio-item {
+    background-color: #1c1c1c; /* Slightly lighter than main black */
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #333333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(226, 88, 34, 0.3); /* Flame Red shadow */
+}
+
+.portfolio-item h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.portfolio-item p {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.portfolio-item a {
+    display: inline-block;
+    background-color: #B8860B; /* Gold */
+    color: #000000;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.portfolio-item a:hover {
+    background-color: #E25822; /* Flame Red on hover */
+    color: #FFFFFF;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #1c1c1c; /* Slightly lighter black for this section */
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #444444;
+    background-color: #252525;
+    color: #FFFFFF;
+    font-size: 1em;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+    color: #AAAAAA;
+}
+
+#contact-form button {
+    align-self: center; /* Center the button */
+}
+
+.social-links a {
+    margin: 0 15px;
+    font-size: 1.2em;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.social-links a img {
+    border-radius: 15px; /* Adjust as needed for desired roundness */
+    width: 40px; /* Example size, adjust as needed */
+    height: 40px; /* Example size, adjust as needed */
+}
+
+.social-links a:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background-color: #000000; /* Pure Black for footer */
+    color: #AAAAAA;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 3px solid #B8860B; /* Gold accent */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    #hero h1 {
+        font-size: 2.5em;
+    }
+
+    #hero p {
+        font-size: 1.2em;
+    }
+
+    section h2 {
+        font-size: 2em;
+    }
+}
