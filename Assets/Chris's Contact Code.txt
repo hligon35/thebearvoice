@@ -1,0 +1,38 @@
+// Nodemailer transporter setup - REPLACE WITH YOUR ACTUAL EMAIL SERVICE DETAILS
+const transporter = nodemailer.createTransport({
+    service: 'gmail', // Or your email provider
+    auth: {
+        user: 'YOUR_EMAIL@gmail.com', // Replace with your sending email address
+        pass: 'YOUR_EMAIL_PASSWORD_OR_APP_PASSWORD' // Replace with your email password or app-specific password
+    }
+});
+
+
+    console.log(`Name: ${name}`);
+    console.log(`Email: ${email}`);
+    console.log(`Message: ${message}`);
+
+
+    // Email options
+    const mailOptions = {
+        from: `'${name}' <${email}>`, // Sender address (appears as "Name <email>")
+        to: 'ceejae06@gmail.com', // List of receivers
+        subject: 'New Contact Form Submission from Portfolio Site', // Subject line
+        text: `You have a new message from ${name} (${email}):\n\n${message}`, // Plain text body
+        replyTo: email // So you can reply directly to the sender
+    };
+
+    // Send mail with defined transport object
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error('Error sending email:', error);
+            return res.status(500).json({ success: false, message: 'Failed to send message. Please try again later.' });
+        }
+        console.log('Message sent: %s', info.messageId);
+        res.json({ success: true, message: 'Form submitted successfully! Thank you.' });
+    });
+});
+
+
+    console.log(`Server listening at http://localhost:${port}`);
+});

@@ -34,6 +34,7 @@ h1, h2, h3 {
     margin: 100px auto 0; /* 100px top margin, centered L/R, 0 bottom */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Optional depth */
     position: relative;
+    width: 95%; /* Make content wrapper slightly less than full width for small screens */
 }
 
 /* ADDED - Apply soft black background to specific children of content-wrapper */
@@ -66,6 +67,7 @@ nav .logo {
     font-size: 2.5em;
     font-weight: bold;
     color: #B8860B; /* Gold */
+    /* word-break: break-all; */ /* Add this if logo text is too long and breaks layout */
 }
 
 /* Nav bar */
@@ -107,6 +109,7 @@ nav ul li a {
     font-size: 10em; /* Doubled from 3em */
     margin-bottom: 100px;
     color: #FFFFFF; /* White for hero title for better readability on image */
+    word-break: break-word; /* Allow long words to break and wrap */
 }
 
 #hero p {
@@ -200,6 +203,7 @@ section h2::after {
     text-align: center; /* Center text and image within li */
     margin: 10px;
     flex-basis: 30%; /* Adjust based on number of items and desired spacing */
+    min-width: 150px; /* Ensure items don't get too squished */
 }
 
 .about-equipment .equipment-list img {
@@ -225,6 +229,7 @@ section h2::after {
     text-align: center; /* Center text and image within li */
     margin: 10px;
     flex-basis: 30%; /* Adjust based on number of items and desired spacing */
+    min-width: 150px; /* Ensure items don't get too squished */
 }
 
 .about-delivery .delivery-list img {
@@ -243,6 +248,7 @@ section h2::after {
     height: 250px; /* Adjust size as needed */
     object-fit: cover; /* Ensures the image covers the area without distortion */
     border: 2px solid #B8860B; /* Optional: adds a gold border */
+    max-width: 100%; /* Ensure image scales down */
 }
 
 /* Projects Section */
@@ -343,13 +349,14 @@ section h2::after {
 
 #contact-form input,
 #contact-form textarea {
-    width: 100%;
+    width: 100%; /* Will take full width of parent */
     padding: 12px;
     border-radius: 5px;
     border: 1px solid #444444;
     background-color: #252525;
     color: #FFFFFF;
     font-size: 1em;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 #contact-form input::placeholder,
@@ -436,39 +443,161 @@ footer {
 
 /* Responsive adjustments for smaller screens if needed */
 @media (max-width: 768px) {
+    .content-wrapper {
+        margin-top: 20px; /* Reduce top margin on smaller screens */
+        width: 100%; /* Allow content to use full width */
+        box-shadow: none; /* Optional: remove shadow on mobile for cleaner look */
+    }
+
+    header {
+        padding: 0.5rem 0; /* Reduce header padding */
+    }
+
     nav {
         flex-direction: column;
+        width: 95%; /* Adjust nav width */
+    }
+
+    nav .logo {
+        font-size: 2em; /* Reduce logo size */
+        margin-bottom: 10px; /* Add space below logo when stacked */
+        text-align: center; /* Center logo text */
     }
 
     nav ul {
-        margin-top: 15px;
+        margin-top: 10px; /* Adjust space */
         flex-direction: column;
         align-items: center;
+        width: 100%; /* Make nav links take full width */
     }
 
     nav ul li {
-        margin: 10px 0;
+        margin: 8px 0; /* Adjust spacing */
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block; /* Make link fill li for easier tapping */
+        padding: 10px 0;
+    }
+
+    #hero {
+        padding: 60px 15px; /* Adjust hero padding */
+        min-height: auto; /* Adjust min-height */
     }
 
     #hero h1 {
-        font-size: 2.5em;
+        font-size: 4em; /* Significantly reduce hero title size */
+        margin-bottom: 20px; /* Reduce margin */
     }
 
-    #hero p {
-        font-size: 1.2em;
+    #hero h2 {
+        font-size: 1.5em; /* Adjust subtitle size */
+        margin-bottom: 15px;
+    }
+
+    .voice-styles-container {
+        gap: 10px; /* Reduce gap between voice styles */
+        margin-bottom: 25px; /* Adjust margin */
+    }
+
+    .voice-styles-container span {
+        font-size: 1em; /* Adjust font size */
+        padding: 6px 10px;
+    }
+
+    .cta-button {
+        font-size: 1em; /* Adjust button font size */
+        padding: 10px 20px;
+    }
+
+    section {
+        padding: 40px 10px; /* Adjust section padding */
     }
 
     section h2 {
         font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    section h2::after {
+        width: 50px;
+        height: 3px;
+    }
+
+    #about .about-content {
+        font-size: 1em; /* Adjust font size */
+        padding: 0 10px; /* Add some horizontal padding */
+    }
+
+    .about-equipment .equipment-list li,
+    .about-delivery .delivery-list li {
+        flex-basis: calc(50% - 20px); /* Two columns on medium screens */
+        min-width: 120px; /* Adjust min-width */
+    }
+
+    .about-equipment .equipment-list img,
+    .about-delivery .delivery-list img {
+        max-width: 120px; /* Adjust image size */
+    }
+
+    .about-coaching img {
+        width: 180px; /* Adjust coach image size */
+        height: 180px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Single column for portfolio items */
+        gap: 20px;
+    }
+
+    .portfolio-item {
+        padding: 20px;
+    }
+
+    #contact-form {
+        gap: 10px;
     }
 
     .voiceover-types-list li {
-        flex-basis: calc(50% - 20px); /* Two columns on medium screens */
+        flex-basis: calc(50% - 10px); /* Two columns on medium screens, adjust gap */
+        margin: 5px;
+    }
+
+    .voiceover-types-list li span {
+        padding: 6px 10px;
+        font-size: 1em;
     }
 }
 
 @media (max-width: 480px) {
+    #hero h1 {
+        font-size: 3em; /* Further reduce hero title for very small screens */
+    }
+
+    #hero h2 {
+        font-size: 1.2em;
+    }
+
+    .voice-styles-container span {
+        font-size: 0.9em;
+        padding: 5px 8px;
+    }
+
+    .about-equipment .equipment-list li,
+    .about-delivery .delivery-list li {
+        flex-basis: 100%; /* Single column for equipment/delivery items */
+        margin: 10px 0;
+    }
+
     .voiceover-types-list li {
-        flex-basis: calc(100% - 20px); /* One column on small screens */
+        flex-basis: 100%; /* Single column for voiceover types */
+        margin: 5px 0;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+        font-size: 0.9em;
     }
 }
